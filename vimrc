@@ -66,3 +66,21 @@ set list
 " map ; to :
 noremap ; :
 
+" add ruler at the end of line
+set ruler
+
+" do not beep on error
+set visualbell
+
+" show line numbers
+set number
+
+" check indent config based on filename 
+filetype indent plugin on 
+
+" allow autoindent, set tabs to 4 spaces
+set autoindent 
+set shiftwidth=4 
+set softtabstop=4 
+set expandtab
+
