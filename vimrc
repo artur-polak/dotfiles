@@ -57,7 +57,8 @@ highlight ColorColumn ctermbg=magenta
 call matchadd('ColorColumn', '\%80v',100)
 
 " change colorcheme
-colorscheme koehler
+" colorscheme koehler
+colorscheme badwolf
 
 " mark tabs and spaces
 exec "set listchars=tab:\uBB\uBB,trail:\uB7,nbsp:~"
@@ -72,15 +73,29 @@ set ruler
 " do not beep on error
 set visualbell
 
-" show line numbers
-set number
+" show line numbers relative to current line
+set relativenumber
 
-" check indent config based on filename 
-filetype indent plugin on 
+" highlight line with cursor
+set cursorline
+set showcmd
+
+" check indent config based on filename
+filetype indent on
+filetype plugin on
 
 " allow autoindent, set tabs to 4 spaces
-set autoindent 
-set shiftwidth=4 
-set softtabstop=4 
+set autoindent
+set shiftwidth=4
+set softtabstop=4
 set expandtab
 
+" don't break line in the middle of the word
+set linebreak
+
+" code folding based on indent,max fold nesting and no folding on file open
+set foldmethod=indent
+set foldnestmax=10
+set foldenable
+
+"
