@@ -96,6 +96,6 @@ set linebreak
 " code folding based on indent,max fold nesting and no folding on file open
 set foldmethod=indent
 set foldnestmax=10
-set foldenable
+set nofoldenable
 
 "
