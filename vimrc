@@ -5,9 +5,14 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 "plugins
-
+set rtp+=~/.vim/plugins/fzf
+Plugin 'junegunn/fzf.vim', { 'do': { -> fzf#install() } }
+Plugin 'preservim/nerdtree'
+Plugin 'itchyny/lightline.vim'
+Plugin 'dense-analysis/ale'
 call vundle#end()
 filetype plugin indent on
+
 
 
 " set syntax highlighting if possible
@@ -68,3 +73,16 @@ set foldnestmax=99
 set nofoldenable
 noremap <space> za
 
+" Plugin Lighline config
+set laststatus=2
+
+"Plugin NERDtree config (autoenable)
+autocmd vimenter * NERDTree
+let g:NERDTreeDirArrowExpandable = ''
+let g:NERDTreeDirArrowCollapsible = ''
+
+" Plugin ALE Linter config
+let g:ale_sign_column_always = 1
+let g:ale_echo_msg_error_str = 'E'
+let g:ale_echo_msg_warning_str = 'W'
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
