@@ -10,6 +10,8 @@ Plugin 'junegunn/fzf.vim', { 'do': { -> fzf#install() } }
 Plugin 'preservim/nerdtree'
 Plugin 'itchyny/lightline.vim'
 Plugin 'dense-analysis/ale'
+Bundle 'takac/vim-hardtime'
+Plugin 'vimwiki/vimwiki'
 call vundle#end()
 filetype plugin indent on
 
@@ -31,6 +33,7 @@ call matchadd('ColorColumn', '\%80v',100)
 
 " change colorcheme
 " colorscheme koehler
+" set t_Co=256
 colorscheme badwolf
 
 " mark tabs and spaces
@@ -86,3 +89,11 @@ let g:ale_sign_column_always = 1
 let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+
+" hardmode config
+"let g:hardtime_default_on = 1
+"let g:list_of_disabled_keys = ["<UP>","<DOWN>","<LEFT>","<RIGHT>"]
+
+" vimwiki config
+let g:vimwiki_list = [{'path': '~/vimwiki/', 'syntax': 'markdown', 'ext': 'md'}]
+
