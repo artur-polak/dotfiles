@@ -78,6 +78,16 @@ noremap <space> za
 
 " Plugin Lighline config
 set laststatus=2
+let g:lightline = {
+      \ 'colorscheme': 'powerline',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'readonly', 'absolutepath', 'modified' ] ]
+      \ },
+      \ 'component': {
+      \ },
+      \ }
+
 
 "Plugin NERDtree config (autoenable)
 autocmd vimenter * NERDTree
