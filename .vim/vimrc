@@ -76,6 +76,11 @@ set foldnestmax=99
 set nofoldenable
 noremap <space> za
 
+" spellcheck
+set spelllang=en,pl
+set spellfile=~/.vim/spell/en-pl.utf-8.add
+noremap <F5> :setlocal spell!<CR>
+
 " Plugin Lighline config
 set laststatus=2
 let g:lightline = {
