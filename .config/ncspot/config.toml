@@ -1,0 +1,13 @@
+[saved_state]
+"volume" = 70
+"repeat" = ""
+"shuffle" = false
+
+[keybindings]
+"=" = "volup"
+"n" = "next"
+"b" = "previous"
+"Space" = "playpause"
+"z" = "shuffle"
+"r" = "repeat"
+
