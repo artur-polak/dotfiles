@@ -31,8 +31,9 @@ from libqtile.config import Click, Drag, Group, Key, Screen
 from libqtile.lazy import lazy
 #from libqtile.utils import guess_terminal
 
+# use windows key as mod
 mod = "mod4"
-#terminal = guess_terminal()
+# terminal = guess_terminal()
 
 keys = [
     # Switch between windows in current stack pane
@@ -61,11 +62,21 @@ keys = [
 
     # Grow and shrink windows in MonadTall
     Key([mod], "h", lazy.layout.grow(), lazy.layout.increase_nmaster(), desc="Expand window"),
-    Key([mod], "l", lazy.layout.shrink(), lazy.layout.decrease_nmaster(), desc="Shrink window")
+    Key([mod], "l", lazy.layout.shrink(), lazy.layout.decrease_nmaster(), desc="Shrink window"),
 
+    # Lauch Brave
+    Key([mod], "b", lazy.spawn('brave-browser --restore-last-session'), desc="Brave Browser")
 ]
 
-groups = [Group(i) for i in ['main', 'media', 'dev', 'work']]
+#groups = [Group(i) for i in ['main', 'media', 'dev', 'work', 'games']]
+
+groups = [
+    Group('main'),
+    Group('media'),
+    Group('dev'),
+    Group('work'),
+    Group('games', layout='max')
+]
 
 
 keys.extend([
@@ -74,20 +85,23 @@ keys.extend([
     Key([mod], 's', lazy.group['media'].toscreen(), desc="Switch to group 'media'"),
     Key([mod], 'd', lazy.group['dev'].toscreen(), desc="Switch to group 'dev'"),
     Key([mod], 'f', lazy.group['work'].toscreen(), desc="Switch to group 'work'"),
+    Key([mod], 'g', lazy.group['games'].toscreen(), desc="Switch to group 'games'"),
     # mod1 + shift + letter of group = switch to & move focused window to group
     Key([mod, "shift"], 'a', lazy.window.togroup('main', switch_group=True), desc="Switch to & move focused window to group 'main'"),
     Key([mod, "shift"], 's', lazy.window.togroup('media', switch_group=True), desc="Switch to & move focused window to group 'media'"),
     Key([mod, "shift"], 'd', lazy.window.togroup('dev', switch_group=True), desc="Switch to & move focused window to group 'dev'"),
     Key([mod, "shift"], 'f', lazy.window.togroup('work', switch_group=True), desc="Switch to & move focused window to group 'work'"),
+    Key([mod, "shift"], 'g', lazy.window.togroup('games', switch_group=True), desc="Switch to & move focused window to group 'games'"),
     # # mod1 + shift + letter of group = move focused window to group
     Key([mod, "shift", "control"], 'a', lazy.window.togroup('main'), desc="Move focused window to group 'main'"),
     Key([mod, "shift", "control"], 's', lazy.window.togroup('media'), desc="Move focused window to group 'media'"),
     Key([mod, "shift", "control"], 'd', lazy.window.togroup('dev'), desc="Move focused window to group 'dev'"),
     Key([mod, "shift", "control"], 'f', lazy.window.togroup('work'), desc="Move focused window to group 'work'"),
+    Key([mod, "shift", "control"], 'g', lazy.window.togroup('games'), desc="Move focused window to group 'games'"),
 ])
 
 layouts = [
-    layout.Max(),
+    #layout.Max(),
     #layout.Stack(num_stacks=2),
     # Try more layouts by unleashing below layouts.
     # layout.Bsp(),
@@ -98,6 +112,7 @@ layouts = [
          border_focus = "dd0000",
          border_normal = "1d2330"
          ),
+     layout.Max()
     # layout.MonadWide(),
     # layout.RatioTile(),
     # layout.Tile(),
