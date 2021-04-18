@@ -1,11 +1,11 @@
 " Vundle configuration
 set nocompatible
 filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
+set rtp+=~/.vim/plugin/Vundle.vim
 call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 "plugins
-set rtp+=~/.vim/plugins/fzf
+set rtp+=~/.vim/plugin/fzf
 Plugin 'junegunn/fzf.vim', { 'do': { -> fzf#install() } }
 Plugin 'preservim/nerdtree'
 Plugin 'itchyny/lightline.vim'
