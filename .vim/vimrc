@@ -1,20 +1,17 @@
-" Vundle configuration
-set nocompatible
-filetype off
-set rtp+=~/.vim/plugin/Vundle.vim
-call vundle#begin()
-Plugin 'gmarik/Vundle.vim'
-"plugins
-set rtp+=~/.vim/plugin/fzf
-Plugin 'junegunn/fzf.vim', { 'do': { -> fzf#install() } }
-Plugin 'preservim/nerdtree'
-Plugin 'itchyny/lightline.vim'
-Plugin 'dense-analysis/ale'
-Bundle 'takac/vim-hardtime'
-Plugin 'vimwiki/vimwiki'
-call vundle#end()
-filetype plugin indent on
+" Install vim-plug if not found
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+endif
 
+" Run PlugInstall if there are missing plugins
+autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)')) | PlugInstall --sync | source $MYVIMRC | endif
+
+call plug#begin('~/.vim/plugged')
+Plug 'itchyny/lightline.vim'
+Plug 'dense-analysis/ale'
+Plug 'takac/vim-hardtime'
+Plug 'vimwiki/vimwiki'
+call plug#end()
 
 
 " set syntax highlighting if possible
@@ -33,8 +30,9 @@ call matchadd('ColorColumn', '\%80v',100)
 
 " change colorcheme
 " colorscheme koehler
-" set t_Co=256
-colorscheme badwolf
+set t_Co=256
+let g:badwolf_darkgutter = 1
+silent! colorscheme badwolf
 
 " mark tabs and spaces
 exec "set listchars=tab:\uBB\uBB,trail:\uB7,nbsp:~"
@@ -95,9 +93,9 @@ let g:lightline = {
 
 
 "Plugin NERDtree config (autoenable)
-autocmd vimenter * NERDTree
-let g:NERDTreeDirArrowExpandable = ''
-let g:NERDTreeDirArrowCollapsible = ''
+"autocmd vimenter * NERDTree
+"let g:NERDTreeDirArrowExpandable = ''
+"let g:NERDTreeDirArrowCollapsible = ''
 
 " Plugin ALE Linter config
 let g:ale_sign_column_always = 1
