@@ -74,6 +74,9 @@ set foldnestmax=99
 set nofoldenable
 noremap <space> za
 
+" split windows below
+set splitbelow
+
 " spellcheck
 set spelllang=en,pl
 set spellfile=~/.vim/spell/en-pl.utf-8.add
