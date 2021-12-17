@@ -1,0 +1,10 @@
+- defaults:
+    link:
+        relink: true
+
+- clean: ['~']
+
+- link:
+    ~/.vim: vim
+    ~/gitstat.sh: gitstat.sh
+    ~/vimwiki.sh: vimwiki.sh
