@@ -8,3 +8,6 @@
     ~/.vim: vim
     ~/gitstat.sh: gitstat.sh
     ~/vimwiki.sh: vimwiki.sh
+    ~/batstat.sh: batstat.sh
+    ~/.config: config
+    ~/.tmux.conf: tmux.conf
