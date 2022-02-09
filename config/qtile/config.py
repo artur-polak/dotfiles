@@ -48,7 +48,7 @@ keys = [
     Key([mod], "space", lazy.layout.next(), desc="Switch window focus to other pane(s) of stack"),
 
     # Launch terminal
-    Key([mod], "Return", lazy.spawn('termite'), desc="Launch terminal"),
+    Key([mod], "Return", lazy.spawn('xterm'), desc="Launch terminal"),
 
     # Toggle between different layouts as defined below
     Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
