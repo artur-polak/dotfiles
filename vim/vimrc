@@ -74,8 +74,9 @@ set foldnestmax=99
 set nofoldenable
 noremap <space> za
 
-" split windows below
+" split windows below and right
 set splitbelow
+set splitright
 
 " spellcheck
 set spelllang=en,pl
