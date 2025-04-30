@@ -1,0 +1,17 @@
+---
+- name: Install console tools
+  hosts: localhost
+  become: true
+  tasks:
+    - name: Update apt repository
+      ansible.builtin.apt:
+        update_cache: yes
+
+    - name: Install packages
+      ansible.builtin.apt:
+        name: "{{ item }}"
+        state: present
+        loop:
+          - git
+          - nala
+
