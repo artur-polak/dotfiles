@@ -1,0 +1,19 @@
+---
+- name: Configure dotfiles
+  hosts: localhost
+  connection: local
+  become: true
+  tasks:
+    - name: Update apt
+      ansible.builtin.apt:
+        update_cache: true
+
+    - name: Install git
+      ansible.builtin.apt:
+        name: git
+        state: present
+
+    - name: Install stow
+      ansible.builtin.apt:
+        name: stow
+        state: present
